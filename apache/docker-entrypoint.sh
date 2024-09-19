@@ -16,16 +16,16 @@ if  [[ "$1" == apache2* || "$1" == php-fpm || "$1" == bin* ]]; then
     echo >&2 "Complete! ROUNDCUBEMAIL has been successfully copied to $INSTALLDIR"
   # update Roundcube in docroot
   else
-    echo >&2 "roundcubemail found in $INSTALLDIR - installing update..."
-    (cd /usr/src/roundcubemail && bin/installto.sh -y $INSTALLDIR)
-    # Re-install composer modules (including plugins)
-    composer \
-          --working-dir=${INSTALLDIR} \
-          --prefer-dist \
-          --no-dev \
-          --no-interaction \
-          --optimize-autoloader \
-          install
+    #echo >&2 "roundcubemail found in $INSTALLDIR - installing update..."
+    #(cd /usr/src/roundcubemail && bin/installto.sh -y $INSTALLDIR)
+    ## Re-install composer modules (including plugins)
+    #composer \
+    #      --working-dir=${INSTALLDIR} \
+    #      --prefer-dist \
+    #      --no-dev \
+    #      --no-interaction \
+    #      --optimize-autoloader \
+    #      install
   fi
 
   if [ -f /run/secrets/roundcube_db_user ]; then
